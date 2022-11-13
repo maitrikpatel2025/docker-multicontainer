@@ -1,20 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev" : "nodemon"
-  },
   "dependencies": {
-    "express": "4.16.2",
-    "pg":"8.0.3",
+    "express": "4.16.3",
+    "pg": "8.0.3",
+    "redis": "2.8.0",
     "cors": "2.8.4",
-    "nodemon":"1.18.3",
-    "redis":"2.8.0",
-    "body-parser": "1.20.1"
+    "nodemon": "1.18.3",
+    "body-parser": "*"
   },
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node index.js"
+  }
 }
