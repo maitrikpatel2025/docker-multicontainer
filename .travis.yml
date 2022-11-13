@@ -8,11 +8,17 @@ script:
 language: generic 
 
 after_success: 
-  -deploy build -t maitrikpatel2025/multi-client ./client
-  -deploy build -t maitrikpatel2025/multi-nginx ./nginx
-  -deploy build -t maitrikpatel2025/multi-server ./server
-  -deploy build -t maitrikpatel2025/multi-worker ./worker
-
+  - docker build -t maitrikpatel2025/multi-client ./client
+  - docker build -t maitrikpatel2025/multi-nginx ./nginx
+  - docker build -t maitrikpatel2025/multi-server ./server
+  - docker build -t maitrikpatel2025/multi-worker ./worker
+# log in to the docker login
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# take those image and push them to docker hub
+  - docker push maitrikpatel2025/multi-client 
+  - docker push maitrikpatel2025/multi-nginx 
+  - docker push maitrikpatel2025/multi-server 
+  - docker push maitrikpatel2025/multi-worker 
 # deploy:
 #   provider: elasticbeanstalk
 #   region: "us-east-2"
